@@ -67,43 +67,57 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
       title: "Matemática",
       icon: Calculator,
       description: "Resolução de problemas e raciocínio lógico",
-      topics: ["Funções", "Geometria", "Estatística", "Probabilidade", "Trigonometria", "Logaritmos"],
+      topics: ["Matemática básica", "Funções e equações", "Geometria", "Estatística", "Combinatória e probabilidade"],
       color: "bg-blue-500"
     },
     {
-      title: "Física",
+      title: "Biologia",
       icon: Atom,
-      description: "Fenômenos naturais e leis da física",
-      topics: ["Mecânica", "Eletricidade", "Óptica", "Ondas", "Termologia", "Física Moderna"],
+      description: "Ciências da vida e organismos",
+      topics: ["Ecologia", "Botânica", "Bioenergética", "Fisiologia animal", "Biologia molecular", "Evolução", "Genética", "Citologia"],
+      color: "bg-green-500"
+    },
+    {
+      title: "Química",
+      icon: Atom,
+      description: "Transformações da matéria",
+      topics: ["Físico-química", "Química geral", "Forças intermoleculares", "Modelos atômicos", "Química orgânica"],
       color: "bg-purple-500"
+    },
+    {
+      title: "Física",
+      icon: Zap,
+      description: "Fenômenos naturais e leis da física",
+      topics: ["Eletrodinâmica", "Dinâmica", "Ondulatória", "Termologia"],
+      color: "bg-orange-500"
     },
     {
       title: "Geografia",
       icon: Globe,
       description: "Espaço geográfico e sociedade",
-      topics: ["Geopolítica", "Climatologia", "Demografia", "Urbanização", "Cartografia", "Globalização"],
-      color: "bg-green-500"
-    },
-    {
-      title: "Português",
-      icon: Feather,
-      description: "Interpretação e produção textual",
-      topics: ["Gramática", "Literatura", "Redação", "Interpretação", "Figuras de Linguagem", "Gêneros Textuais"],
-      color: "bg-red-500"
-    },
-    {
-      title: "Redação",
-      icon: PenTool,
-      description: "Produção de texto dissertativo-argumentativo",
-      topics: ["Estrutura", "Argumentação", "Coesão", "Competências", "Temas Atuais", "Proposta de Intervenção"],
-      color: "bg-orange-500"
+      topics: ["Geografia geral", "Geografia do Brasil", "Geopolítica", "Questões ambientais"],
+      color: "bg-cyan-500"
     },
     {
       title: "Filosofia",
       icon: Brain,
       description: "Reflexão crítica e pensamento filosófico",
-      topics: ["Ética", "Política", "Metafísica", "Epistemologia", "Estética", "Filosofia Moderna"],
+      topics: ["Filosofia contemporânea", "Filosofia antiga", "Filosofia medieval", "Filosofia moderna", "Bioética"],
       color: "bg-indigo-500"
+    },
+    {
+      title: "Sociologia",
+      icon: Users,
+      description: "Sociedade e relações humanas",
+      topics: ["Temas centrais", "Questões sociais", "Poder, Estado e política"],
+      color: "bg-rose-500"
+    },
+    {
+      title: "Linguagens e Literatura",
+      icon: Feather,
+      description: "Interpretação e produção textual",
+      topics: ["Linguagens", "Literatura", "Interpretação de textos", "Teoria da comunicação"],
+      color: "bg-red-500"
     }
   ];
 
