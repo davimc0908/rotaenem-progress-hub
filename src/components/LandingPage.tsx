@@ -60,7 +60,7 @@ export default function LandingPage({
     title: "Matemática",
     icon: Calculator,
     description: "Resolução de problemas e raciocínio lógico",
-    topics: ["Matemática básica", "Funções e equações", "Geometria", "Estatística", "Combinatória e probabilidade!!!"],
+    topics: ["Matemática básica", "Funções e equações", "Geometria", "Estatística!!!!!", "Combinatória e probabilidade!!!"],
     color: "bg-blue-500"
   }, {
     title: "Biologia",
