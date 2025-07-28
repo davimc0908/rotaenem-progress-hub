@@ -9,135 +9,114 @@ import student2 from '@/assets/student-2.jpg';
 import logo from '@/assets/logo.png';
 import Navigation from './Navigation';
 import SubjectCard from './SubjectCard';
-
 interface LandingPageProps {
   onNavigateToDashboard: () => void;
 }
-
-export default function LandingPage({ onNavigateToDashboard }: LandingPageProps) {
-  const [timeToEnem, setTimeToEnem] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
+export default function LandingPage({
+  onNavigateToDashboard
+}: LandingPageProps) {
+  const [timeToEnem, setTimeToEnem] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
   useEffect(() => {
     const enemDate = new Date('2025-11-12T08:00:00');
-    
     const updateCountdown = () => {
       const now = new Date().getTime();
       const distance = enemDate.getTime() - now;
-
       if (distance > 0) {
         setTimeToEnem({
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+          hours: Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)),
+          minutes: Math.floor(distance % (1000 * 60 * 60) / (1000 * 60)),
+          seconds: Math.floor(distance % (1000 * 60) / 1000)
         });
       }
     };
-
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
   }, []);
-
-  const features = [
-    {
-      icon: <CheckCircle className="h-6 w-6 text-success" />,
-      title: "Progresso Visual",
-      description: "Marque matérias estudadas e veja seu progresso em tempo real"
-    },
-    {
-      icon: <Target className="h-6 w-6 text-primary" />,
-      title: "Foco no que Importa",
-      description: "Matérias organizadas por peso e importância no ENEM"
-    },
-    {
-      icon: <TrendingUp className="h-6 w-6 text-warning" />,
-      title: "Análise por Área",
-      description: "Acompanhe seu desempenho em cada área do conhecimento"
-    },
-    {
-      icon: <BookOpen className="h-6 w-6 text-destructive" />,
-      title: "Sistema de Revisão",
-      description: "Marque matérias que precisam de revisão e organize seus estudos"
-    }
-  ];
-
-  const subjects = [
-    {
-      title: "Matemática",
-      icon: Calculator,
-      description: "Resolução de problemas e raciocínio lógico",
-      topics: ["Matemática básica", "Funções e equações", "Geometria", "Estatística", "Combinatória e probabilidade"],
-      color: "bg-blue-500"
-    },
-    {
-      title: "Biologia",
-      icon: Atom,
-      description: "Ciências da vida e organismos",
-      topics: ["Ecologia", "Botânica", "Bioenergética", "Fisiologia animal", "Biologia molecular", "Evolução", "Genética", "Citologia"],
-      color: "bg-green-500"
-    },
-    {
-      title: "Química",
-      icon: Atom,
-      description: "Transformações da matéria",
-      topics: ["Físico-química", "Química geral", "Forças intermoleculares", "Modelos atômicos", "Química orgânica"],
-      color: "bg-purple-500"
-    },
-    {
-      title: "Física",
-      icon: Zap,
-      description: "Fenômenos naturais e leis da física",
-      topics: ["Eletrodinâmica", "Dinâmica", "Ondulatória", "Termologia"],
-      color: "bg-orange-500"
-    },
-    {
-      title: "Geografia",
-      icon: Globe,
-      description: "Espaço geográfico e sociedade",
-      topics: ["Geografia geral", "Geografia do Brasil", "Geopolítica", "Questões ambientais"],
-      color: "bg-cyan-500"
-    },
-    {
-      title: "Filosofia",
-      icon: Brain,
-      description: "Reflexão crítica e pensamento filosófico",
-      topics: ["Filosofia contemporânea", "Filosofia antiga", "Filosofia medieval", "Filosofia moderna", "Bioética"],
-      color: "bg-indigo-500"
-    },
-    {
-      title: "Sociologia",
-      icon: Users,
-      description: "Sociedade e relações humanas",
-      topics: ["Temas centrais", "Questões sociais", "Poder, Estado e política"],
-      color: "bg-rose-500"
-    },
-    {
-      title: "Linguagens e Literatura",
-      icon: Feather,
-      description: "Interpretação e produção textual",
-      topics: ["Linguagens", "Literatura", "Interpretação de textos", "Teoria da comunicação"],
-      color: "bg-red-500"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Ana Silva",
-      photo: student1,
-      text: "Com o RotaENEM consegui organizar meus estudos e aumentei minha nota em 200 pontos!",
-      rating: 5
-    },
-    {
-      name: "Carlos Santos",
-      photo: student2,
-      text: "Finalmente saí da desorganização. Agora sei exatamente o que estudar e quando revisar.",
-      rating: 5
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-secondary/30">
+  const features = [{
+    icon: <CheckCircle className="h-6 w-6 text-success" />,
+    title: "Progresso Visual",
+    description: "Marque matérias estudadas e veja seu progresso em tempo real"
+  }, {
+    icon: <Target className="h-6 w-6 text-primary" />,
+    title: "Foco no que Importa",
+    description: "Matérias organizadas por peso e importância no ENEM"
+  }, {
+    icon: <TrendingUp className="h-6 w-6 text-warning" />,
+    title: "Análise por Área",
+    description: "Acompanhe seu desempenho em cada área do conhecimento"
+  }, {
+    icon: <BookOpen className="h-6 w-6 text-destructive" />,
+    title: "Sistema de Revisão",
+    description: "Marque matérias que precisam de revisão e organize seus estudos"
+  }];
+  const subjects = [{
+    title: "Matemática",
+    icon: Calculator,
+    description: "Resolução de problemas e raciocínio lógico",
+    topics: ["Matemática básica", "Funções e equações", "Geometria", "Estatística", "Combinatória e probabilidade"],
+    color: "bg-blue-500"
+  }, {
+    title: "Biologia",
+    icon: Atom,
+    description: "Ciências da vida e organismos",
+    topics: ["Ecologia", "Botânica", "Bioenergética", "Fisiologia animal", "Biologia molecular", "Evolução", "Genética", "Citologia"],
+    color: "bg-green-500"
+  }, {
+    title: "Química",
+    icon: Atom,
+    description: "Transformações da matéria",
+    topics: ["Físico-química", "Química geral", "Forças intermoleculares", "Modelos atômicos", "Química orgânica"],
+    color: "bg-purple-500"
+  }, {
+    title: "Física",
+    icon: Zap,
+    description: "Fenômenos naturais e leis da física",
+    topics: ["Eletrodinâmica", "Dinâmica", "Ondulatória", "Termologia"],
+    color: "bg-orange-500"
+  }, {
+    title: "Geografia",
+    icon: Globe,
+    description: "Espaço geográfico e sociedade",
+    topics: ["Geografia geral", "Geografia do Brasil", "Geopolítica", "Questões ambientais"],
+    color: "bg-cyan-500"
+  }, {
+    title: "Filosofia",
+    icon: Brain,
+    description: "Reflexão crítica e pensamento filosófico",
+    topics: ["Filosofia contemporânea", "Filosofia antiga", "Filosofia medieval", "Filosofia moderna", "Bioética"],
+    color: "bg-indigo-500"
+  }, {
+    title: "Sociologia",
+    icon: Users,
+    description: "Sociedade e relações humanas",
+    topics: ["Temas centrais", "Questões sociais", "Poder, Estado e política"],
+    color: "bg-rose-500"
+  }, {
+    title: "Linguagens e Literatura",
+    icon: Feather,
+    description: "Interpretação e produção textual",
+    topics: ["Linguagens", "Literatura", "Interpretação de textos", "Teoria da comunicação"],
+    color: "bg-red-500"
+  }];
+  const testimonials = [{
+    name: "Ana Silva",
+    photo: student1,
+    text: "Com o RotaENEM consegui organizar meus estudos e aumentei minha nota em 200 pontos!",
+    rating: 5
+  }, {
+    name: "Carlos Santos",
+    photo: student2,
+    text: "Finalmente saí da desorganização. Agora sei exatamente o que estudar e quando revisar.",
+    rating: 5
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-background to-secondary/30">
       {/* Navigation */}
       <Navigation onNavigateToDashboard={onNavigateToDashboard} />
 
@@ -173,22 +152,14 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  onClick={onNavigateToDashboard}
-                  variant="hero" 
-                  size="lg" 
-                  className="text-lg px-8 py-6 animate-pulse-glow"
-                >
+                <Button onClick={onNavigateToDashboard} variant="hero" size="lg" className="text-lg px-8 py-6 animate-pulse-glow">
                   <Zap className="h-6 w-6 mr-2" />
                   Quero transformar meus estudos
                 </Button>
                 
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="text-lg px-8 py-6"
-                  onClick={() => document.getElementById('conteudos')?.scrollIntoView({ behavior: 'smooth' })}
-                >
+                <Button variant="outline" size="lg" className="text-lg px-8 py-6" onClick={() => document.getElementById('conteudos')?.scrollIntoView({
+                behavior: 'smooth'
+              })}>
                   <BookOpen className="h-6 w-6 mr-2" />
                   Ver conteúdos
                 </Button>
@@ -197,11 +168,7 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
 
             {/* Imagem/Mockup */}
             <div className="relative">
-              <img 
-                src={dashboardMockup} 
-                alt="Preview do Painel de Estudos" 
-                className="rounded-lg shadow-card border border-primary/20 max-w-full h-auto transform hover:scale-105 transition-transform duration-300"
-              />
+              <img src={dashboardMockup} alt="Preview do Painel de Estudos" className="rounded-lg shadow-card border border-primary/20 max-w-full h-auto transform hover:scale-105 transition-transform duration-300" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-lg" />
             </div>
           </div>
@@ -266,16 +233,7 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {subjects.map((subject, index) => (
-              <SubjectCard 
-                key={index}
-                title={subject.title}
-                icon={subject.icon}
-                topics={subject.topics}
-                description={subject.description}
-                color={subject.color}
-              />
-            ))}
+            {subjects.map((subject, index) => <SubjectCard key={index} title={subject.title} icon={subject.icon} topics={subject.topics} description={subject.description} color={subject.color} />)}
           </div>
         </div>
       </section>
@@ -293,8 +251,7 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <Card key={index} className="shadow-card hover:shadow-glow transition-all duration-300 animate-slide-up">
+            {features.map((feature, index) => <Card key={index} className="shadow-card hover:shadow-glow transition-all duration-300 animate-slide-up">
                 <CardHeader>
                   <div className="flex items-center gap-3">
                     {feature.icon}
@@ -304,8 +261,7 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
                 <CardContent>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -355,41 +311,7 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
 
       {/* Testimonials */}
       <section className="py-20 px-4 bg-card/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              O que nossos <span className="text-primary">estudantes</span> dizem
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="shadow-card">
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-warning text-warning" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 italic">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <img 
-                      src={testimonial.photo} 
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">Estudante ENEM</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        
       </section>
 
       {/* CTA Final */}
@@ -401,12 +323,7 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
           <p className="text-xl opacity-90">
             Pare de procrastinar e comece a medir seu progresso hoje mesmo.
           </p>
-          <Button 
-            onClick={onNavigateToDashboard}
-            variant="secondary" 
-            size="lg" 
-            className="text-xl px-8 py-6 bg-white text-primary hover:bg-white/90"
-          >
+          <Button onClick={onNavigateToDashboard} variant="secondary" size="lg" className="text-xl px-8 py-6 bg-white text-primary hover:bg-white/90">
             <Target className="h-6 w-6 mr-2" />
             Começar agora gratuitamente
           </Button>
@@ -460,6 +377,5 @@ export default function LandingPage({ onNavigateToDashboard }: LandingPageProps)
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 }
