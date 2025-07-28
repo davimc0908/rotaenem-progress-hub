@@ -104,6 +104,12 @@ export default function LandingPage({
     description: "Interpretação e produção textual",
     topics: ["Linguagens", "Literatura", "Interpretação de textos", "Teoria da comunicação"],
     color: "bg-red-500"
+  }, {
+    title: "Linguagens e Literatura",
+    icon: Feather,
+    description: "Interpretação e produção textual",
+    topics: ["Linguagens", "Literatura", "Interpretação de textos", "Teoria da comunicação"],
+    color: "bg-red-500"
   }];
   const testimonials = [{
     name: "Ana Silva",
